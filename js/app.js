@@ -15,13 +15,17 @@ const pintarCards = () => {
         templateCard.querySelectorAll('h7')[1].textContent = user.phone
         templateCard.querySelectorAll('h7')[2].textContent = user.username
         templateCard.querySelectorAll('h7')[3].textContent = user.website
+        templateCard.querySelectorAll('h7')[4].textContent = user.address.street
+        templateCard.querySelectorAll('h7')[5].textContent = user.company.name
         templateCard.querySelector('.btn-primary').dataset.id = user.id
-
+        
         const clone = templateCard.cloneNode(true)
         fragment.appendChild(clone)
     })
     usuariosHTML.appendChild(fragment)
+    console.log(usuarios)
 }
+
 
 function obtenerUsuarios() {
     fetch('https://jsonplaceholder.typicode.com/users')
